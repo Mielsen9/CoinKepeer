@@ -1,0 +1,40 @@
+@use 'sass:math';
+@use "vars" as *;
+// to %
+@function prc($pxOne, $pxTwo) {
+  $result: math.div($pxOne, $pxTwo) * 100%;
+  @return $result; 
+}
+
+// REM
+@function rem($px) {
+  @return calc(#{$px} / 16 * 1rem);
+}
+
+// wiaport
+@function vw($px-value, $base-width: $maxWidthContainer) {
+  @return ($px-value / $base-width) * 100vw;
+}
+
+// Adaptiv-value
+@function fun-adaptiv($startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+
+  @return clamp(
+    #{$minSize + px},
+    calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidthContainer - $minWidth})),
+    #{$startSize + px}
+);
+}
+
+// Adaptiv-value rem
+@function fun-adaptiv-rem($startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+
+  @return clamp(
+    rem($minSize),
+    calc(rem($minSize) + #{$addSize} * ((100vw - rem($minWidth)) / #{$maxWidthContainer - $minWidth})),
+    rem($startSize)
+);
+}
+

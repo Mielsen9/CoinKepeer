@@ -1,0 +1,27 @@
+@use "@/scss/utils/function" as *;
+@use "@/scss/utils/mixins" as *;
+@use "@/scss/utils/utils";
+
+.button {
+ background-color: red;
+}
+.conteiner {
+ padding: 0 15px 50px;
+}
+.h1 {
+ color: white;
+ padding-top: rem(54);
+ background-color: #788d64;
+}
+.flex {
+ display: flex;
+
+}
+.tasksConteiner {
+ display: flex;
+ justify-content: space-between;
+}
+.inputForm {
+ margin-top: 20px;
+ margin-bottom: 20px;
+}

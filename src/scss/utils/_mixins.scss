@@ -1,0 +1,115 @@
+@use "vars" as *;
+// For big img
+@mixin mediaBg() {
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	    @content;
+    }
+}
+
+// Media
+@mixin laptop() {
+  @media (max-width: $laptop-size) {
+  @content;
+}
+}
+
+@mixin tablet () {
+    @media (max-width: $tablet-size) {
+		@content;
+	}
+}
+
+@mixin mobile () {
+    @media (max-width: $mobile-size) {
+		@content;
+	}
+}
+
+// Adaptiv-value
+@mixin adaptiv-value($property, $startSize, $minSize, $type: 1) {
+  $addSize: $startSize - $minSize;
+
+  @if $type==1 {
+    // Только если менше контейнера
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidthContainer - $minWidth}));
+    }
+  }
+
+  @else if $type==2 {
+    // Только если більше контейнера
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+    }
+  }
+
+  @else {
+    // Всегда
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth - $minWidth}));
+  }
+}
+
+//Mixin for size
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+  $adaptmax: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidthContainer}));
+  $adaptmin: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidthContainer}));
+  
+  @media (max-width: 767px) {
+    font-size: clamp(#{$mobSize + px}, $adaptmax, #{$pcSize + px});
+  }
+  @media (min-width: 767px) {
+    font-size: clamp(#{$mobSize + px}, $adaptmin, #{$pcSize + px});
+  }
+}
+
+//Медіа запит
+@mixin mq($width, $type: max) {
+
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type ==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Іконка трикутника
+@mixin triangle($width, $direction, $color) {
+  width: 0;
+  height: 0;
+
+  @if $direction ==up {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-bottom: $width solid $color;
+  }
+
+  @if $direction ==down {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-top: $width solid $color;
+  }
+
+  @if $direction ==left {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-right: $width solid $color;
+  }
+
+  @if $direction ==right {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-left: $width solid $color;
+  }
+}

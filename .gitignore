@@ -1,0 +1,32 @@
+# Ігнорування системних файлів macOS
+.DS_Store
+
+# Ігнорування node_modules (для проєктів на Node.js)
+node_modules/
+
+package-lock.json
+npm-debug.log*
+yarn-error.log
+
+# Ігнорування зібраних файлів у builds
+build/
+
+
+
+# Ігнорування налаштувань редактора
+.vscode/
+.idea/
+
+# Logs
+logs
+*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# SASS/SCSS cache
+.sass-cache/
+
+# Ігнорування файлів середовища
+.env
