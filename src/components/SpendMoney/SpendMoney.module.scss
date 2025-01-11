@@ -1,0 +1,8 @@
+@use "@/scss/utils/function" as *;
+
+.spendMoney {
+  width: rem(60);
+  height: rem(60);
+  background-color: green;
+  border-radius: 50%;
+}
