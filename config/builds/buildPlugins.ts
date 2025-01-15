@@ -24,11 +24,6 @@ export function buildPlugins({mode, paths, analyzer, platform}:BuildOptions): Co
             __PLATFORM__: JSON.stringify(platform),
             __ENV__: JSON.stringify(mode),
         }),
-        // make slowly
-        new MiniCssExtractPlugin({
-            filename: "css/style.[contenthash:8].css",
-            chunkFilename: "css/style.[contenthash:8].css",
-        }),
     ]
 
     // Development Plugins
@@ -37,6 +32,11 @@ export function buildPlugins({mode, paths, analyzer, platform}:BuildOptions): Co
         // Виносить провірку типів в окремий процес
         plugins.push(new ForkTsCheckerWebpackPlugin())
         plugins.push(new ReactRefreshWebpackPlugin())
+        // make slowly
+        plugins.push(new MiniCssExtractPlugin({
+            filename: "css/style.[contenthash:8].css",
+            chunkFilename: "css/style.[contenthash:8].css",
+        }))
     }
 
     // Production Plugin
@@ -48,6 +48,11 @@ export function buildPlugins({mode, paths, analyzer, platform}:BuildOptions): Co
                 ],
             })
         )
+        // make slowly
+        plugins.push(new MiniCssExtractPlugin({
+            filename: "css/style.[contenthash:8].css",
+            chunkFilename: "css/style.[contenthash:8].css",
+        }))
     }
 
     // Analyzer Plugin
