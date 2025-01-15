@@ -1,0 +1,9 @@
+@use "@/scss/utils/function" as *;
+
+.conteinerGrey {
+   display: flex;
+   justify-content: space-around;
+   padding: rem(10);
+   border-top: rem(3) solid grey;
+   border-bottom: rem(3) solid grey;
+}
