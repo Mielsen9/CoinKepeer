@@ -2,6 +2,7 @@ import React from "react";
 import {SavedMoneyArea} from "@/components/SavedMoneyArea/SavedMoneyArea";
 import {SpendMoneyArea} from "@/components/SpendMoneyArea/SpendMoneyArea";
 import {ExpensesButton} from "@/components/ExpensesButton/ExpensesButton";
+import {ChairJs} from "@/features/chairjs/ChairJs";
 
 
 // Type
@@ -21,6 +22,8 @@ export const App = () => {
             <SpendMoneyArea/>
             <SpendMoneyArea/>
             <SpendMoneyArea/>
+
+            <ChairJs/>
 
             <ExpensesButton/>
         </div>

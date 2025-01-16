@@ -2,31 +2,24 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import  "./scss/style.scss";
 import {App} from "./App";
-// import {createBrowserRouter, RouterProvider} from "react-router-dom";
-// import {Provider} from "react-redux";
-// import {store} from "@/state/store";
+import {Provider} from "react-redux";
+import {store} from "@/state/store";
 
-const root = document.getElementById('root');
+const rootElement = document.getElementById('root');
 
-if (!root) {
-    throw new Error('root nod found')
+if (!rootElement) {
+    throw new Error('Root node not found');
 }
 
-const container = createRoot(root)
+const root = createRoot(rootElement);
 
-// const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <App />,
-//     },
-// ]);
-
-
-container.render(<App />
-    // <Provider store={store}>
-    //     <RouterProvider router={router} />
-    // </Provider>
-);
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>,
+)
 
 
 

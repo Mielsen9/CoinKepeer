@@ -21,7 +21,7 @@ import {
 	selectChartJsState,
 	selectFirstData,
 	selectTargetData
-} from "@/chairjs/chairJsSlice";
+} from "@/features/chairjs/chairJsSlice";
 ChartJS.register(
 	Title,
 	Tooltip,

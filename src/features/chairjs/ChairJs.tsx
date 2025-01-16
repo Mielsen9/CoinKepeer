@@ -1,8 +1,8 @@
 import React, {useCallback, useState} from 'react';
-import {Diagram} from "@/chairjs/components/Diagram";
+import {Diagram} from "@/features/chairjs/components/Diagram";
 import {useAppSelector} from "@/state/hook";
-import {selectInComeMoney, selectSpentMoney} from "@/chairjs/chairJsSlice";
-import {DataOutPut} from "@/chairjs/components/DataOutPut/DataOutPut";
+import {selectInComeMoney, selectSpentMoney} from "@/features/chairjs/chairJsSlice";
+import {DataOutPut} from "@/features/chairjs/components/DataOutPut/DataOutPut";
 
 export const  ChairJs= () => {
 	const inComeMoney = useAppSelector(selectInComeMoney);
