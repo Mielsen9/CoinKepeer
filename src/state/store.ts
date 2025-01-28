@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import chairJsSlice from "@/features/chairjs/chairJsSlice";
+import circlesSlice from "@/features/animationCircle/circlesSlice";
 
 export const store = configureStore({
 	reducer: {
+		circles: circlesSlice,
 		chairJs: chairJsSlice,
 	},
 })
