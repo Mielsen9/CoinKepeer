@@ -1,11 +1,8 @@
 import React from "react";
-import {SavedMoneyArea} from "@/components/SavedMoneyArea/SavedMoneyArea";
-import {SpendMoneyArea} from "@/components/SpendMoneyArea/SpendMoneyArea";
 import {ExpensesButton} from "@/components/ExpensesButton/ExpensesButton";
 import {ChairJs} from "@/features/chairjs/ChairJs";
 import {Animation} from "@/features/animationCircle/Animation";
-
-
+import {InfoLine} from "@/features/infoLine/InfoLine";
 // Type
 
 // App
@@ -17,6 +14,7 @@ export const App = () => {
     // Return
     return (
         <div>
+            <InfoLine/>
             <Animation/>
             <ChairJs/>
             <ExpensesButton/>
