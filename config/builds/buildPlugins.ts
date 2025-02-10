@@ -34,8 +34,8 @@ export function buildPlugins({mode, paths, analyzer, platform}:BuildOptions): Co
         plugins.push(new ReactRefreshWebpackPlugin())
         // make slowly
         plugins.push(new MiniCssExtractPlugin({
-            filename: "css/style.[contenthash:8].css",
-            chunkFilename: "css/style.[contenthash:8].css",
+            filename: "css/style.css",
+            chunkFilename: "css/style.css",
         }))
     }
 

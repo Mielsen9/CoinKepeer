@@ -1,1 +1,6 @@
 @use "@/scss/utils/function" as *;
+.infoLineConteiner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

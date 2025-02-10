@@ -9,7 +9,7 @@ export const InfoLine: React.FC<PropsType> = React.memo((p) => {
 
 	// Return
 	return (
-		<div>
+		<div className={s.infoLineConteiner}>
 			<p>menu</p>
 			<div>
 				<p>Total</p>
