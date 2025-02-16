@@ -44,7 +44,6 @@ export const Animation: React.FC = React.memo(() => {
 	// Handler YellowCircle
 	const handleActiveYellowCircleStart = () => {
 		handlePress(true)
-		scaleYellowCircle.current = 1.2; // Збільшуємо масштаб
 		if (activeYellowCircleRef.current) {
 			const circlePos = activeYellowCircleRef.current.getBoundingClientRect();
 			firstPositionYellowCircle.current = { x: circlePos.x + 30, y: circlePos.y + 30 };
@@ -52,6 +51,7 @@ export const Animation: React.FC = React.memo(() => {
 			const circle = activeYellowCircleRef.current;
 			circle.style.position = `absolute`;
 		}
+		scaleYellowCircle.current = 1.2; // Збільшуємо масштаб
 		updateActiveYellowCirclePosition()
 	};
 	const handleActiveYellowCircleEnd = () => {
@@ -259,7 +259,7 @@ export const Animation: React.FC = React.memo(() => {
 	return (
 		<div className={s.animationContainer}>
 			<div className={s.yellowCircleConteiner}>
-				{yellowCircles.map((circle: {id: number}) => (
+				{yellowCircles.map((circle: { id: number }) => (
 					<YellowCircle key={circle.id}
 								  id={circle.id}
 								  handleSetActiveYellowCircle={handleSetActiveYellowCircle}

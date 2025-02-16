@@ -1,4 +1,5 @@
 import React, {useCallback, useState} from 'react';
+import * as s from "./chairJs.module.scss";
 import {Diagram} from "@/features/chairjs/components/Diagram";
 import {useAppSelector} from "@/state/hook";
 import {selectInComeMoney, selectSpentMoney} from "@/features/chairjs/chairJsSlice";

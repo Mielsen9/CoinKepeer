@@ -4,5 +4,13 @@
   width: 100%;
   height: rem(60);
   background-color: greenyellow;
-
+  //position: absolute;
+  //left: 0;
+  //bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  box-sizing: border-box;
 }

@@ -1,6 +1,10 @@
 @use "@/scss/utils/function" as *;
 .infoLineConteiner {
+  height: rem(60);
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.count {
+  font-size: 40px;
 }

@@ -1,0 +1,13 @@
+@use "@/scss/utils/function" as *;
+@use "@/scss/utils/mixins" as *;
+.diagramConteiner {
+  width: 100%;
+  //height: fun-adaptiv-rem(460, 210);
+}
+// Media Query
+@include mq(mobile, max) {
+  .diagramConteiner {
+    width: 100%;
+    height: rem(210);
+  }
+}

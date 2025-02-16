@@ -2,26 +2,9 @@
 @use "@/scss/utils/mixins" as *;
 @use "@/scss/utils/utils";
 
-.button {
- background-color: red;
-}
-.conteiner {
- padding: 0 15px 50px;
-}
-.h1 {
- color: white;
- padding-top: rem(54);
- background-color: #788d64;
-}
-.flex {
+.mainBlock {
  display: flex;
-
-}
-.tasksConteiner {
- display: flex;
+ flex-direction: column;
  justify-content: space-between;
-}
-.inputForm {
- margin-top: 20px;
- margin-bottom: 20px;
+ height: calc(100vh - #{rem(120)});
 }

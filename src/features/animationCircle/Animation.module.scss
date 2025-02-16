@@ -1,7 +1,7 @@
 @use "@/scss/utils/function" as *;
 .animationContainer {
     width: 100vw;
-    height: 400px;
+    height: 70%;
     background-color: #f0f0f0;
 }
 .button {
@@ -11,7 +11,7 @@
 	width: rem(30);
 	height: rem(30);
 	padding: rem(30);
-	margin-left: calc(12.4% - 30px);
+	margin: 25px calc(12.4% - 30px);
 	flex-shrink: 0;
 	box-sizing: border-box;
 	background: greenyellow;
@@ -33,15 +33,17 @@
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
-	padding: rem(20) 0;
+	padding: rem(9) 0;
 	border-top: rem(1) solid grey;
     border-bottom: rem(1) solid grey;
+	box-sizing: border-box;
 	transition: transform 0.3s ease; /* Плавне переміщення */
 }
 .greenCircleConteiner {
 	display: flex;
 	flex-wrap: wrap;
-	padding-top: 20px;
+	padding: rem(10) 0;
+	row-gap: rem(10);
 }
 
 

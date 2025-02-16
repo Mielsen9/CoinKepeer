@@ -1,6 +1,9 @@
 import React, {useRef} from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-date-fns'; // Підключення адаптера для роботи з датами
+import * as s from "./diagram.module.scss";
+
+
 import {
 	Chart as ChartJS,
 	Title,
@@ -146,7 +149,7 @@ export const Diagram = React.memo((props: DiagramType) => {
 	// Return
 	return (
 		<div>
-			<div style={{width: '100%', height: '300px'}}>
+			<div className={s.diagramConteiner}>
 				<Line ref={chartRef} data={chartJsState} options={options}/>
 			</div>
 		</div>

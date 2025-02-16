@@ -14,6 +14,7 @@ export const GreenCircle = forwardRef<HTMLDivElement, PropsType>((p, ref) => {
 	// Return
 	return (
 		<div className={s.relativeConteiner}>
+			<p>name</p>
 			<div className={s.greenCircleBack}
 				 ref={ref}
 			>
@@ -27,8 +28,8 @@ export const GreenCircle = forwardRef<HTMLDivElement, PropsType>((p, ref) => {
 						onMouseDown={removeCircleHandler}
 				>x
 				</button>
-
 			</div>
+			<p>count</p>
 		</div>
 	)
 });

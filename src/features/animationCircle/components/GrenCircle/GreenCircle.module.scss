@@ -1,8 +1,12 @@
 @use "@/scss/utils/function" as *;
 .relativeConteiner {
   width: rem(60);
-  height: rem(60);
-  margin: 0 calc(12.4% - 30px) 20px;
+  height: rem(110);
+  margin: 0 calc(12.4% - 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 .greenCircleBack {
   width: rem(60);

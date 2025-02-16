@@ -25,19 +25,23 @@ export const YellowCircle: React.FC<PropsType> = React.memo((p) => {
 	}
 	// Return
 	return (
-			<div className={s.relativeConteiner}>
-				<div
-					className={s.circle}
-					ref={yellowCircleRef}
-					onMouseDown={!('ontouchstart' in window) ? handleStart : undefined}
-					onMouseUp={!('ontouchstart' in window) ? handleEnd : undefined}
-					onTouchStart={'ontouchstart' in window ? handleStart : undefined}
-					onTouchEnd={'ontouchstart' in window ? handleEnd : undefined}
-				>
-					<button className={s.delete}
-							onMouseDown={removeCircleHandler}
-					>x</button>
+			<div className={s.yellowCircleConteiner}>
+				<p className={s.yellowCircleName}>name</p>
+				<div className={s.relativeConteiner}>
+					<div
+						className={s.circle}
+						ref={yellowCircleRef}
+						onMouseDown={!('ontouchstart' in window) ? handleStart : undefined}
+						onMouseUp={!('ontouchstart' in window) ? handleEnd : undefined}
+						onTouchStart={'ontouchstart' in window ? handleStart : undefined}
+						onTouchEnd={'ontouchstart' in window ? handleEnd : undefined}
+					>
+						<button className={s.delete}
+								onMouseDown={removeCircleHandler}
+						>x</button>
+					</div>
 				</div>
+				<p className={s.yellowCircleCount}>count</p>
 			</div>
 	);
 });

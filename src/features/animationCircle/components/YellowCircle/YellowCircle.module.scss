@@ -1,4 +1,11 @@
 @use "@/scss/utils/function" as *;
+.yellowCircleConteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: rem(110);
+}
 .relativeConteiner {
   display: inline-block;
   width: rem(30);
@@ -31,4 +38,12 @@
   color: white;
   border-radius: 50px;
   background-color: #404040;
+}
+.yellowCircleName {
+  color: grey;
+  //padding: rem(5) 0;
+}
+.yellowCircleCount {
+  color: green;
+  //padding: rem(5) 0;
 }
