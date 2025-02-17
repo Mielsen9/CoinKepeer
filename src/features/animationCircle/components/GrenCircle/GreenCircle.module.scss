@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  scroll-snap-align: center;
 }
 .greenCircleBack {
   width: rem(60);

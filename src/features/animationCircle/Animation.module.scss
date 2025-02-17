@@ -1,7 +1,7 @@
 @use "@/scss/utils/function" as *;
+@use "@/scss/utils/mixins" as *;
 .animationContainer {
     width: 100vw;
-    height: 70%;
     background-color: #f0f0f0;
 }
 .button {
@@ -42,8 +42,20 @@
 .greenCircleConteiner {
 	display: flex;
 	flex-wrap: wrap;
-	padding: rem(10) 0;
+	padding: rem(10) 0 ;
 	row-gap: rem(10);
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	scrollbar-width: none;
+	@include laptop {
+		max-height: 590px;
+	}
+	@include tablet {
+		max-height: 465px;
+	}
+	@include mobile {
+		max-height: 350px;
+	}
 }
 
 

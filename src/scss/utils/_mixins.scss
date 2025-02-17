@@ -8,19 +8,19 @@
 
 // Media
 @mixin laptop() {
-  @media (max-width: $laptop-size) {
+  @media (max-height: $laptop-size) {
   @content;
 }
 }
 
 @mixin tablet () {
-    @media (max-width: $tablet-size) {
+    @media (max-height: $tablet-size) {
 		@content;
 	}
 }
 
 @mixin mobile () {
-    @media (max-width: $mobile-size) {
+    @media (max-height: $mobile-size) {
 		@content;
 	}
 }
