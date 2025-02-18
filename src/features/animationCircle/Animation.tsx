@@ -3,6 +3,7 @@ import * as s from "./Animation.module.scss"
 import {YellowCircle} from "@/features/animationCircle/components/YellowCircle/YellowCircle";
 import {GreenCircle} from "@/features/animationCircle/components/GrenCircle/GreenCircle";
 import {useAppDispatch, useAppSelector} from "@/state/hook";
+
 import {
 	greenCircleAdded,
 	greenCircleRemoved, selectGreenCircles,
@@ -10,6 +11,7 @@ import {
 	yellowCircleAdded,
 	yellowCircleRemoved
 } from "@/features/animationCircle/circlesSlice";
+import {useShowChangeButtons} from "@/hooks/useShowChangeButtons";
 
 // Animation
 export const Animation: React.FC = React.memo(() => {
@@ -255,6 +257,8 @@ export const Animation: React.FC = React.memo(() => {
 			optionFirstPositionYellowCircle()
 		}
 	}
+	// try
+	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, showChangeButtonsToggle} = useShowChangeButtons();
 	// Return
 	return (
 		<div className={s.animationContainer}>
@@ -262,6 +266,10 @@ export const Animation: React.FC = React.memo(() => {
 				{yellowCircles.map((circle: { id: number }) => (
 					<YellowCircle key={circle.id}
 								  id={circle.id}
+								  isShowChangeButtons={isShowChangeButtons}
+								  handleShowChangeButtons={handleShowChangeButtons}
+								  handleMoveMouse={handleMoveMouse}
+								  showChangeButtonsToggle={showChangeButtonsToggle}
 								  handleSetActiveYellowCircle={handleSetActiveYellowCircle}
 								  handleActiveYellowCircleStart={handleActiveYellowCircleStart}
 								  handleActiveYellowCircleEnd={handleActiveYellowCircleEnd}
@@ -276,6 +284,8 @@ export const Animation: React.FC = React.memo(() => {
 				{greenCircles.map((circle: {id: number}) => (
 					<GreenCircle key={circle.id}
 								 id={circle.id}
+								 isShowChangeButtons={isShowChangeButtons}
+								 handleShowChangeButtons={handleShowChangeButtons}
 								 ref={greenCircleRefs.current.get(circle.id)}
 								 removeCircle={removeGreenCircle}
 					/>
@@ -284,6 +294,12 @@ export const Animation: React.FC = React.memo(() => {
 					Add
 				</button>
 			</div>
+			<button className={s.completeButton}
+					onClick={!('ontouchstart' in window) ? () => handleShowChangeButtons(false) : undefined}
+					onTouchEnd={'ontouchstart' in window ? () => handleShowChangeButtons(false) : undefined}
+			>
+				Complete
+			</button>
 		</div>
 	);
 });
