@@ -1,0 +1,56 @@
+@use "@/scss/utils/function" as *;
+// genieFormButton -------------------------------------------
+.genieFormButton {
+  width: rem(60);
+  height: rem(60);
+  margin: auto calc(12.5% - 30px) 25px auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: brown;
+  border-radius: 50px;
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  left: calc(87.5vw - 30px);
+  transition: all 1.5s ease;
+}
+.genieFormButton:active {
+  background-color: #222222;
+}
+.active {
+  position: absolute;
+  height: 320px ;
+  width: calc(100% - 20px);
+  margin: 20px 10px;
+  border-radius: 20px;
+  background-color: #4caf50;
+  transform: scale(1);
+  transform-origin: center; /* Початок збільшення — центр */
+  cursor: pointer;
+}
+.marginLeft {
+  margin-left: calc(87.5vw - 30px);  //margin-left: calc(100% - calc(25% - 21px));
+}
+// plus ----------------------------------------------------------
+//.close {
+//  cursor: pointer;
+//  position: absolute;
+//  top: 29px;
+//  right: 44px;
+//}
+//.close:before,
+//.close:after {
+//  content: "";
+//  position: absolute;
+//  width: 30px;
+//  height: 4px;
+//  background: gray;
+//  border-radius: 2px;
+//}
+//.close:before.active {
+//  transform: rotate(45deg);
+//}
+//.close:after {
+//  transform: rotate(-90deg);
+//}
+

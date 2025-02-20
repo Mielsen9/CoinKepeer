@@ -1,4 +1,6 @@
 @use "@/scss/utils/function" as *;
+// View yellowCircle ----------------------------------------------------------
+
 .yellowCircleConteiner {
   display: flex;
   flex-direction: column;
@@ -10,7 +12,7 @@
   display: inline-block;
   width: rem(30);
   height: rem(30);
-  padding: rem(30) 12.4vw;
+  padding: rem(30) 12.5vw;
   flex-shrink: 0;
   box-sizing: border-box;
   scroll-snap-align: start;
@@ -28,7 +30,18 @@
   transition: transform 0.3s ease-out; /* Плавне масштабування */
   z-index: 3;
 }
-.delete {
+// Info block ----------------------------------------------------------
+
+.yellowCircleName {
+  color: grey;
+}
+.yellowCircleCount {
+  color: green;
+}
+// Delete Change button ----------------------------------------------------------
+
+.delete ,
+.change {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +51,13 @@
   color: white;
   border-radius: 50px;
   background-color: #404040;
+  position: absolute;
 }
-.yellowCircleName {
-  color: grey;
+.delete {
+  right: 0;
+  top: 0;
 }
-.yellowCircleCount {
-  color: green;
+.change {
+  left: 0;
+  bottom: 0;
 }

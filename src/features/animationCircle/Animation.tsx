@@ -11,7 +11,10 @@ import {
 	yellowCircleAdded,
 	yellowCircleRemoved
 } from "@/features/animationCircle/circlesSlice";
+
 import {useShowChangeButtons} from "@/hooks/useShowChangeButtons";
+import {GenieForm} from "@/features/animationCircle/components/GenieForm/GenieForm";
+import {useScroll} from "@/hooks/useScroll";
 
 // Animation
 export const Animation: React.FC = React.memo(() => {
@@ -133,7 +136,7 @@ export const Animation: React.FC = React.memo(() => {
 				if (ref.current) {
 					// Отримуємо координати зеленого кільця
 					const greenX = ref.current.offsetLeft + 30;
-					const greenY = ref.current.offsetTop + 30;
+					const greenY = ref.current.offsetTop + 220;
 
 					const dx = yellowX - greenX;
 					const dy = yellowY - greenY;
@@ -259,6 +262,7 @@ export const Animation: React.FC = React.memo(() => {
 	}
 	// try
 	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, showChangeButtonsToggle} = useShowChangeButtons();
+	const {scrollContainerRef} = useScroll({ content: greenCircles });
 	// Return
 	return (
 		<div className={s.animationContainer}>
@@ -266,6 +270,7 @@ export const Animation: React.FC = React.memo(() => {
 				{yellowCircles.map((circle: { id: number }) => (
 					<YellowCircle key={circle.id}
 								  id={circle.id}
+								  changeAnimation={s.rotate}
 								  isShowChangeButtons={isShowChangeButtons}
 								  handleShowChangeButtons={handleShowChangeButtons}
 								  handleMoveMouse={handleMoveMouse}
@@ -280,10 +285,12 @@ export const Animation: React.FC = React.memo(() => {
 					Add
 				</button>
 			</div>
-			<div className={s.greenCircleConteiner}>
+			<div className={s.greenCircleConteiner}
+				 ref={scrollContainerRef}>
 				{greenCircles.map((circle: {id: number}) => (
 					<GreenCircle key={circle.id}
 								 id={circle.id}
+								 changeAnimation={s.rotate}
 								 isShowChangeButtons={isShowChangeButtons}
 								 handleShowChangeButtons={handleShowChangeButtons}
 								 ref={greenCircleRefs.current.get(circle.id)}
@@ -293,8 +300,10 @@ export const Animation: React.FC = React.memo(() => {
 				<button className={s.button} onClick={addGreenCircle}>
 					Add
 				</button>
+				<GenieForm greenCircleLength={greenCircles.length}
+				/>
 			</div>
-			<button className={s.completeButton}
+			<button className={`${s.completeButton} ${isShowChangeButtons ? s.changeAnimation : ""}`}
 					onClick={!('ontouchstart' in window) ? () => handleShowChangeButtons(false) : undefined}
 					onTouchEnd={'ontouchstart' in window ? () => handleShowChangeButtons(false) : undefined}
 			>

@@ -2,6 +2,7 @@
 @use "@/scss/utils/mixins" as *;
 .diagramConteiner {
   width: 100%;
+  background-color: white;
   @include laptop {
     height: calc(100vh - #{rem(910)});
   }

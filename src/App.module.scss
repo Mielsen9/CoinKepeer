@@ -7,4 +7,5 @@
  flex-direction: column;
  justify-content: space-between;
  height: calc(100vh - #{rem(120)});
+ z-index: 2;
 }

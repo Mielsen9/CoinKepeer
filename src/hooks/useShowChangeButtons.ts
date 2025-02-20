@@ -3,11 +3,15 @@ import { useState, useRef, useCallback } from 'react';
 export const useShowChangeButtons = () => {
 	const [isShowChangeButtons, setIsShowChangeButtons] = useState(false); // Стан для відображення блоку
 	const showChangeButtonsToggleRef = useRef<boolean>(false);
-
 	// Логіка для встановлення таймера та показу кнопок
-	const handleShowChangeButtons = useCallback((boolean: boolean) => {
+	const handleShowChangeButtons = useCallback((boolean: boolean, func?: () => void) => {
 		if (boolean) {
 			showChangeButtonsToggleRef.current = true; // Встановлюємо значення у true
+			setTimeout(() => {
+				if(func && showChangeButtonsToggleRef.current) {
+					func();
+				}
+			}, 1500);
 			setTimeout(() => {
 				if (showChangeButtonsToggleRef.current) {
 					setIsShowChangeButtons(true); // Показуємо кнопки
