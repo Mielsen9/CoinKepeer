@@ -262,7 +262,7 @@ export const Animation: React.FC = React.memo(() => {
 	}
 	// try
 	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, showChangeButtonsToggle} = useShowChangeButtons();
-	const {scrollContainerRef} = useScroll({ content: greenCircles });
+	const {scrollContainerRef, scrollHeight} = useScroll({ content: greenCircles });
 	// Return
 	return (
 		<div className={s.animationContainer}>
@@ -281,7 +281,7 @@ export const Animation: React.FC = React.memo(() => {
 								  removeCircle={removeYellowCircle}
 					/>
 				))}
-				<button className={s.button} onClick={addYellowCircle}>
+				<button className={s.bug} onClick={addYellowCircle}>
 					Add
 				</button>
 			</div>
@@ -297,11 +297,11 @@ export const Animation: React.FC = React.memo(() => {
 								 removeCircle={removeGreenCircle}
 					/>
 				))}
-				<button className={s.button} onClick={addGreenCircle}>
-					Add
-				</button>
-				<GenieForm greenCircleLength={greenCircles.length}
-				/>
+				<div className={s.bug}></div>
+					<GenieForm greenCircleLength={greenCircles.length}
+							   addGreenCircle={addGreenCircle}
+							   scrollHeight={scrollHeight}
+					/>
 			</div>
 			<button className={`${s.completeButton} ${isShowChangeButtons ? s.changeAnimation : ""}`}
 					onClick={!('ontouchstart' in window) ? () => handleShowChangeButtons(false) : undefined}

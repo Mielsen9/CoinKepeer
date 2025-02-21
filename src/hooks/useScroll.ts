@@ -1,4 +1,4 @@
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 // Type
 type useScrollPropsType = {
 	content: any[];
@@ -6,20 +6,19 @@ type useScrollPropsType = {
 // useScroll
 export const useScroll = (p: useScrollPropsType ) => {
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-	const scrollPosition = useRef<number>(0);
+	const [scrollHeight, setScrollHeight] = useState<number>(370);
 
 	useEffect(() => {
 			if (scrollContainerRef.current) {
 				scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
-				console.log('scrollContainerRef.current.scrollHeight', scrollContainerRef.current.scrollHeight);
-				if (scrollContainerRef.current.scrollHeight !== undefined && scrollContainerRef.current.scrollHeight !== scrollPosition.current) {
-					scrollPosition.current = scrollContainerRef.current.scrollHeight;
-					console.log('Updated scroll position:', scrollPosition.current);
-					}
+				console.log('scrollContainerRef.current.scrollTop', scrollContainerRef.current.scrollTop);
+				setScrollHeight(scrollContainerRef.current.scrollHeight)
 			}
 	}, [p.content]);
 	// Return
+
 	return {
 		scrollContainerRef,
+		scrollHeight,
 	}
 };
