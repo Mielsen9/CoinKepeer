@@ -298,10 +298,10 @@ export const Animation: React.FC = React.memo(() => {
 					/>
 				))}
 				<div className={s.bug}></div>
-					<GenieForm greenCircleLength={greenCircles.length}
-							   addGreenCircle={addGreenCircle}
-							   scrollHeight={scrollHeight}
-					/>
+				<GenieForm greenCircleLength={greenCircles.length}
+						   addGreenCircle={addGreenCircle}
+						   scrollHeight={scrollHeight}
+				/>
 			</div>
 			<button className={`${s.completeButton} ${isShowChangeButtons ? s.changeAnimation : ""}`}
 					onClick={!('ontouchstart' in window) ? () => handleShowChangeButtons(false) : undefined}
