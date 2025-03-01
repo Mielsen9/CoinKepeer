@@ -1,6 +1,4 @@
 import React, { useRef } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useDrag } from "react-use-gesture";
 import * as s from "./YellowCircleTop.module.scss";
 import { DeleteButton } from "@/components/DeleteButton/DeleteButton";
 import { ChangeButton } from "@/components/ChangeButton/ChangeButton";
@@ -17,11 +15,7 @@ export const YellowCircleTop: React.FC<PropsType> = React.memo((p) => {
 	// Ref
 	const yellowCircleRef = useRef<HTMLDivElement | null>(null);
 	// Animation
-	const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
 
-	const bind = useDrag(({ offset: [dx, dy] }) => {
-		api.start({ x: dx, y: dy });
-	});
 	// Logic
 	const handleStart = () => {
 		if (!p.isShowChangeButtons) {
