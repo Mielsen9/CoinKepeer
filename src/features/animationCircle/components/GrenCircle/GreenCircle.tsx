@@ -1,4 +1,4 @@
-import React, {forwardRef} from "react";
+import React from "react";
 import * as s from "./GreenCircle.module.scss"
 import {DeleteButton} from "@/components/DeleteButton/DeleteButton";
 import {ChangeButton} from "@/components/ChangeButton/ChangeButton";
@@ -14,7 +14,7 @@ type PropsType = {
 	removeCircle: (id: number) => void
 };
 // GreenCircle
-export const GreenCircle = forwardRef<HTMLDivElement, PropsType>((p, ref) => {
+export const GreenCircle: React.FC<PropsType> = React.memo((p) => {
 	// Logic
 	const removeCircleHandler = () => {
 		p.removeCircle(p.id);
@@ -23,9 +23,7 @@ export const GreenCircle = forwardRef<HTMLDivElement, PropsType>((p, ref) => {
 	return (
 		<div className={`${s.relativeConteiner} ${p.isShowChangeButtons ? p.changeAnimation : ""}`}>
 			<CircleName/>
-			<div className={s.greenCircleBack}
-				 ref={ref}
-				>
+			<div className={s.greenCircleBack}>
 				<GreenCircleTop handleShowChangeButtons={p.handleShowChangeButtons}/>
 				<span className={s.yellowInGreen}></span>
 			</div>
