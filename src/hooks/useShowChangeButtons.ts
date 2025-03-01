@@ -2,18 +2,18 @@ import { useState, useRef, useCallback } from 'react';
 
 export const useShowChangeButtons = () => {
 	const [isShowChangeButtons, setIsShowChangeButtons] = useState(false); // Стан для відображення блоку
-	const showChangeButtonsToggleRef = useRef<boolean>(false);
+	const toggleShowChangeButtonsRef = useRef<boolean>(false);
 	// Логіка для встановлення таймера та показу кнопок
 	const handleShowChangeButtons = useCallback((boolean: boolean, func?: () => void) => {
 		if (boolean) {
-			showChangeButtonsToggleRef.current = true; // Встановлюємо значення у true
+			toggleShowChangeButtonsRef.current = true; // Встановлюємо значення у true
 			setTimeout(() => {
-				if(func && showChangeButtonsToggleRef.current) {
+				if(func && toggleShowChangeButtonsRef.current) {
 					func();
 				}
 			}, 1500);
 			setTimeout(() => {
-				if (showChangeButtonsToggleRef.current) {
+				if (toggleShowChangeButtonsRef.current) {
 					setIsShowChangeButtons(true); // Показуємо кнопки
 				}
 			}, 2000);
@@ -24,14 +24,14 @@ export const useShowChangeButtons = () => {
 
 	// Логіка для скидання таймера при русі
 	const handleMoveMouse = useCallback(() => {
-		if (showChangeButtonsToggleRef.current) {
-			showChangeButtonsToggleRef.current = false; // Вимикаємо таймер
+		if (toggleShowChangeButtonsRef.current) {
+			toggleShowChangeButtonsRef.current = false; // Вимикаємо таймер
 		}
 	}, []);
 
 	// Логіка для прямого перемикання значення
-	const showChangeButtonsToggle = useCallback((boolean: boolean) => {
-		showChangeButtonsToggleRef.current = boolean;
+	const toggleShowChangeButtons = useCallback((boolean: boolean) => {
+		toggleShowChangeButtonsRef.current = boolean;
 	}, []);
 
 	// Повертаємо всі методи та стан
@@ -39,6 +39,6 @@ export const useShowChangeButtons = () => {
 		isShowChangeButtons,
 		handleShowChangeButtons,
 		handleMoveMouse,
-		showChangeButtonsToggle,
+		toggleShowChangeButtons,
 	};
 };

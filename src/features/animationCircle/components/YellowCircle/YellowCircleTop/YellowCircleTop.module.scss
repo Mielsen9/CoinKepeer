@@ -1,0 +1,14 @@
+@use "@/scss/utils/function" as *;
+.circle {
+  width: rem(60);
+  height: rem(60);
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  border-radius: 50%;
+  background-color: yellow;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease-out; /* Плавне масштабування */
+  z-index: 3;
+}

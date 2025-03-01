@@ -1,6 +1,4 @@
 @use "@/scss/utils/function" as *;
-// View yellowCircle ----------------------------------------------------------
-
 .yellowCircleConteiner {
   display: flex;
   flex-direction: column;
@@ -16,25 +14,4 @@
   flex-shrink: 0;
   box-sizing: border-box;
   scroll-snap-align: start;
-}
-.circle {
-  width: rem(60);
-  height: rem(60);
-  cursor: pointer;
-  display: flex;
-  justify-content: end;
-  align-items: start;
-  border-radius: 50%;
-  background-color: yellow;
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s ease-out; /* Плавне масштабування */
-  z-index: 3;
-}
-// Info block ----------------------------------------------------------
-
-.yellowCircleName {
-  color: grey;
-}
-.yellowCircleCount {
-  color: green;
 }

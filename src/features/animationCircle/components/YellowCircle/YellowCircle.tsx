@@ -1,65 +1,43 @@
-import React, {useRef} from "react";
+import React from "react";
 import * as s from "./YellowCircle.module.scss";
-import {DeleteButton} from "@/components/DeleteButton/DeleteButton";
-import {ChangeButton} from "@/components/ChangeButton/ChangeButton";
+import {CircleName} from "@/components/CircleName/CircleName";
+import {CircleCount} from "@/components/CircleCount/CircleCount";
+import {YellowCircleTop} from "@/features/animationCircle/components/YellowCircle/YellowCircleTop/YellowCircleTop";
 
 // Type
 type PropsType = {
 	id: number,
 	changeAnimation: string
 	isShowChangeButtons: boolean
-	handleShowChangeButtons: (boolean: boolean, func: () => void) => void;
+	handleShowChangeButtons: (boolean: boolean) => void;
 	handleMoveMouse: () => void
-	showChangeButtonsToggle: (boolean: boolean) => void
+	toggleShowChangeButtons: (boolean: boolean) => void
 	handleSetActiveYellowCircle: (circleRef: HTMLDivElement | null) => void,
 	handleActiveYellowCircleStart: () => void,
 	handleActiveYellowCircleEnd: () => void,
 	removeCircle: (id: number) => void,
 }
-// YellowCircle
+// YellowCircleTop
 export const YellowCircle: React.FC<PropsType> = React.memo((p) => {
-	// State
-	const yellowCircleRef = useRef<HTMLDivElement | null>(null);
 	// Logic
-	const handleStart = () => {
-		if (!p.isShowChangeButtons) {
-			p.handleSetActiveYellowCircle(yellowCircleRef.current)
-			p.handleActiveYellowCircleStart();
-			p.handleShowChangeButtons(true, p.handleActiveYellowCircleEnd)
-		}
-	};
-	const handleEnd = () => {
-		p.handleActiveYellowCircleEnd()
-		p.showChangeButtonsToggle(false);
-	};
 	const handleMoveDelete = () => {
 		p.handleMoveMouse()
 	};
-	const removeCircleHandler = () => {
-		p.removeCircle(p.id);
-	}
-		// Return
-		return (
+	// Return
+	return (
 		<div className={`${s.yellowCircleConteiner} ${p.isShowChangeButtons ? p.changeAnimation : ""}`}
 			 onMouseMove={handleMoveDelete}
-			 onTouchMove={handleMoveDelete}>
-			<p className={s.yellowCircleName}>name</p>
+			 onTouchMove={handleMoveDelete}
+			>
+			<CircleName/>
 			<div className={s.relativeConteiner}>
-				<div className={s.circle}
-					 ref={yellowCircleRef}
-					 onMouseDown={!('ontouchstart' in window) ? handleStart : undefined}
-					 onMouseUp={!('ontouchstart' in window) ? handleEnd : undefined}
-					 onTouchStart={'ontouchstart' in window ? handleStart : undefined}
-					 onTouchEnd={'ontouchstart' in window ? handleEnd : undefined}>
-					{p.isShowChangeButtons && (
-						<div>
-							<DeleteButton top={0} right={0} onRemove={removeCircleHandler}/>
-							<ChangeButton bottom={0} left={0}/>
-						</div>
-					)}
-				</div>
+				<YellowCircleTop id={p.id}
+								 isShowChangeButtons={p.isShowChangeButtons}
+								 handleShowChangeButtons={p.handleShowChangeButtons}
+								 toggleShowChangeButtons={p.toggleShowChangeButtons}
+								 removeCircle={p.removeCircle}/>
 			</div>
-			<p className={s.yellowCircleCount}>count</p>
+			<CircleCount/>
 		</div>
-		);
-		});
+	);
+});
