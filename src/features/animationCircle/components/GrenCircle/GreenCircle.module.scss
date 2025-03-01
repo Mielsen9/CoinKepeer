@@ -43,7 +43,6 @@
 }
 // Delete Change button ----------------------------------------------------------
 
-.delete ,
 .change {
   display: flex;
   justify-content: center;
@@ -55,10 +54,6 @@
   border-radius: 50px;
   background-color: #404040;
   position: absolute;
-}
-.delete {
-  right: 0;
-  top: 25px;
 }
 .change {
   left: 0;
