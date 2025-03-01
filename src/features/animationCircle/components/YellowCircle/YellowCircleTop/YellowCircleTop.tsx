@@ -1,7 +1,9 @@
-import React, {useRef} from "react";
-import * as s from "./YellowCircleTop.module.scss"
-import {DeleteButton} from "@/components/DeleteButton/DeleteButton";
-import {ChangeButton} from "@/components/ChangeButton/ChangeButton";
+import React, { useRef } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import { useDrag } from "react-use-gesture";
+import * as s from "./YellowCircleTop.module.scss";
+import { DeleteButton } from "@/components/DeleteButton/DeleteButton";
+import { ChangeButton } from "@/components/ChangeButton/ChangeButton";
 // Type
 type PropsType = {
 	id: number,
@@ -12,12 +14,18 @@ type PropsType = {
 };
 // YellowCircleTop
 export const YellowCircleTop: React.FC<PropsType> = React.memo((p) => {
-	// State
+	// Ref
 	const yellowCircleRef = useRef<HTMLDivElement | null>(null);
+	// Animation
+	const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
+
+	const bind = useDrag(({ offset: [dx, dy] }) => {
+		api.start({ x: dx, y: dy });
+	});
 	// Logic
 	const handleStart = () => {
 		if (!p.isShowChangeButtons) {
-			p.handleShowChangeButtons(true)
+			p.handleShowChangeButtons(true);
 		}
 	};
 	const handleEnd = () => {
@@ -25,22 +33,25 @@ export const YellowCircleTop: React.FC<PropsType> = React.memo((p) => {
 	};
 	const removeCircleHandler = () => {
 		p.removeCircle(p.id);
-	}
+	};
 	// Return
 	return (
-		<div className={s.circle}
-			 ref={yellowCircleRef}
-			 onMouseDown={!('ontouchstart' in window) ? handleStart : undefined}
-			 onMouseUp={!('ontouchstart' in window) ? handleEnd : undefined}
-			 onTouchStart={'ontouchstart' in window ? handleStart : undefined}
-			 onTouchEnd={'ontouchstart' in window ? handleEnd : undefined}
-		>
+		<animated.div
+			className={s.circle}
+			ref={yellowCircleRef}
+			style={{ x, y }}
+			{...bind()}
+			onMouseDown={!('ontouchstart' in window) ? handleStart : undefined}
+			onMouseUp={!('ontouchstart' in window) ? handleEnd : undefined}
+			onTouchStart={'ontouchstart' in window ? handleStart : undefined}
+			onTouchEnd={'ontouchstart' in window ? handleEnd : undefined}
+			>
 			{p.isShowChangeButtons && (
 				<div>
-					<DeleteButton top={0} right={0} onRemove={removeCircleHandler}/>
-					<ChangeButton bottom={0} left={0}/>
+					<DeleteButton top={0} right={0} onRemove={removeCircleHandler} />
+					<ChangeButton bottom={0} left={0} />
 				</div>
 			)}
-		</div>
-	)
+		</animated.div>
+	);
 });

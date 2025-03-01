@@ -12,9 +12,6 @@ type PropsType = {
 	handleShowChangeButtons: (boolean: boolean) => void;
 	handleMoveMouse: () => void
 	toggleShowChangeButtons: (boolean: boolean) => void
-	handleSetActiveYellowCircle: (circleRef: HTMLDivElement | null) => void,
-	handleActiveYellowCircleStart: () => void,
-	handleActiveYellowCircleEnd: () => void,
 	removeCircle: (id: number) => void,
 }
 // YellowCircleTop
