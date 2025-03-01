@@ -1,5 +1,7 @@
 import React, {useRef} from "react";
 import * as s from "./YellowCircle.module.scss";
+import {DeleteButton} from "@/components/DeleteButton/DeleteButton";
+import {ChangeButton} from "@/components/ChangeButton/ChangeButton";
 
 // Type
 type PropsType = {
@@ -51,12 +53,8 @@ export const YellowCircle: React.FC<PropsType> = React.memo((p) => {
 					 onTouchEnd={'ontouchstart' in window ? handleEnd : undefined}>
 					{p.isShowChangeButtons && (
 						<div>
-							<button className={s.delete} onMouseUp={removeCircleHandler}>
-								x
-							</button>
-							<button className={s.change}>
-								i
-							</button>
+							<DeleteButton top={0} right={0} onRemove={removeCircleHandler}/>
+							<ChangeButton bottom={0} left={0}/>
 						</div>
 					)}
 				</div>

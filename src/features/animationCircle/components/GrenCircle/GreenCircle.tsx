@@ -1,6 +1,7 @@
 import React, {forwardRef} from "react";
 import * as s from "./GreenCircle.module.scss"
 import {DeleteButton} from "@/components/DeleteButton/DeleteButton";
+import {ChangeButton} from "@/components/ChangeButton/ChangeButton";
 // Type
 type PropsType = {
 	id: number
@@ -38,9 +39,7 @@ export const GreenCircle = forwardRef<HTMLDivElement, PropsType>((p, ref) => {
 			{p.isShowChangeButtons && (
 				<div>
 					<DeleteButton top={25} right={0} onRemove={removeCircleHandler}/>
-					<button className={s.change}>
-						i
-					</button>
+					<ChangeButton bottom={25} left={0}/>
 				</div>
 			)}
 

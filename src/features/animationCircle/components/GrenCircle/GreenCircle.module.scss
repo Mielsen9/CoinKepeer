@@ -41,21 +41,3 @@
   border-radius: 50%;
   background-color: yellow;
 }
-// Delete Change button ----------------------------------------------------------
-
-.change {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 4px;
-  height: 20px;
-  width: 20px;
-  color: white;
-  border-radius: 50px;
-  background-color: #404040;
-  position: absolute;
-}
-.change {
-  left: 0;
-  bottom: 25px;
-}
