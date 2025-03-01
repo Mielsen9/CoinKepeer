@@ -261,7 +261,7 @@ export const Animation: React.FC = React.memo(() => {
 		}
 	}
 	// try
-	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, showChangeButtonsToggle} = useShowChangeButtons();
+	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, toggleShowChangeButtons} = useShowChangeButtons();
 	const {scrollContainerRef, scrollHeight} = useScroll({ content: greenCircles });
 	// Return
 	return (
@@ -274,7 +274,7 @@ export const Animation: React.FC = React.memo(() => {
 								  isShowChangeButtons={isShowChangeButtons}
 								  handleShowChangeButtons={handleShowChangeButtons}
 								  handleMoveMouse={handleMoveMouse}
-								  showChangeButtonsToggle={showChangeButtonsToggle}
+								  toggleShowChangeButtons={toggleShowChangeButtons}
 								  handleSetActiveYellowCircle={handleSetActiveYellowCircle}
 								  handleActiveYellowCircleStart={handleActiveYellowCircleStart}
 								  handleActiveYellowCircleEnd={handleActiveYellowCircleEnd}
