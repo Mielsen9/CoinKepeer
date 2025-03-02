@@ -3,22 +3,30 @@ import { useState, useRef, useCallback } from 'react';
 export const useShowChangeButtons = () => {
 	const [isShowChangeButtons, setIsShowChangeButtons] = useState(false); // Стан для відображення блоку
 	const toggleShowChangeButtonsRef = useRef<boolean>(false);
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 	// Логіка для встановлення таймера та показу кнопок
-	const handleShowChangeButtons = useCallback((boolean: boolean, func?: () => void) => {
+	const handleShowChangeButtons = useCallback((boolean: boolean) => {
 		if (boolean) {
-			toggleShowChangeButtonsRef.current = true; // Встановлюємо значення у true
-			setTimeout(() => {
-				if(func && toggleShowChangeButtonsRef.current) {
-					func();
-				}
-			}, 1500);
-			setTimeout(() => {
+			toggleShowChangeButtonsRef.current = true;
+
+			// Якщо вже є активний таймер — очищаємо його перед новим запуском
+			if (timeoutRef.current) {
+				clearTimeout(timeoutRef.current);
+			}
+
+			timeoutRef.current = setTimeout(() => {
 				if (toggleShowChangeButtonsRef.current) {
-					setIsShowChangeButtons(true); // Показуємо кнопки
+					setIsShowChangeButtons(true);
 				}
 			}, 2000);
 		} else {
-			setIsShowChangeButtons(false); // Ховаємо кнопки
+			setIsShowChangeButtons(false);
+			toggleShowChangeButtonsRef.current = false;
+			// Очищуємо таймер, якщо він ще не виконався
+			if (timeoutRef.current) {
+				clearTimeout(timeoutRef.current);
+				timeoutRef.current = null;
+			}
 		}
 	}, []);
 
@@ -26,6 +34,11 @@ export const useShowChangeButtons = () => {
 	const handleMoveMouse = useCallback(() => {
 		if (toggleShowChangeButtonsRef.current) {
 			toggleShowChangeButtonsRef.current = false; // Вимикаємо таймер
+			// Очищуємо таймер при русі миші
+			if (timeoutRef.current) {
+				clearTimeout(timeoutRef.current);
+				timeoutRef.current = null;
+			}
 		}
 	}, []);
 
