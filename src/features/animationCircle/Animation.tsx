@@ -37,6 +37,11 @@ export const Animation: React.FC = React.memo(() => {
 	const removeGreenCircle = useCallback((id: number) => {
 		dispatch(greenCircleRemoved({id}));
 	}, [dispatch]);
+	// isPressedRef
+	const isPressedRef = useRef<boolean>(false);
+	const handlePress = useCallback((boolean: boolean) => {
+		isPressedRef.current = boolean
+	}, []);
 	// Hook ------------------------------------------------------------------------------------------------------------
 	const {scrollContainerRef, scrollHeight} = useScroll({ content: greenCircles });
 	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, toggleShowChangeButtons} = useShowChangeButtons();
@@ -48,6 +53,8 @@ export const Animation: React.FC = React.memo(() => {
 					<YellowCircle key={circle.id}
 								  id={circle.id}
 								  changeAnimation={s.rotate}
+								  isPressedRef={isPressedRef}
+								  handlePress={handlePress}
 								  isShowChangeButtons={isShowChangeButtons}
 								  handleShowChangeButtons={handleShowChangeButtons}
 								  handleMoveMouse={handleMoveMouse}
