@@ -4,6 +4,7 @@ import {RootState} from "@/state/store";
 const initialState: CircleState= {
 	yellowCircles: [],
 	greenCircles: [],
+	isPressed: false,
 }
 // circlesSlice
 const circlesSlice = createSlice({
@@ -31,14 +32,25 @@ const circlesSlice = createSlice({
 			const { id } = action.payload;
 			state.greenCircles = state.greenCircles.filter((circle) => circle.id !== id);
 		},
+		isPressedHandler(state, action: PayloadAction<{ position: boolean }>) {
+			const { position } = action.payload;
+			state.isPressed = position;
+		},
 	},
 })
 // Export
-export const {yellowCircleAdded, yellowCircleRemoved, greenCircleAdded, greenCircleRemoved} = circlesSlice.actions
+export const {
+	yellowCircleAdded,
+	yellowCircleRemoved,
+	greenCircleAdded,
+	greenCircleRemoved,
+	isPressedHandler,
+} = circlesSlice.actions
 export default circlesSlice.reducer
 
 export const selectYellowCircles = (state: RootState) => state.circles.yellowCircles;
 export const selectGreenCircles = (state: RootState) => state.circles.greenCircles;
+export const selectIsPressed = (state: RootState) => state.circles.isPressed;
 // export const selectTargetData = createSelector(
 // 	[selectDatasets],
 // 	(datasets) => {
