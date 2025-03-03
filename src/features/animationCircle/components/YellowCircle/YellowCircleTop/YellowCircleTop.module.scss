@@ -1,7 +1,7 @@
 @use "@/scss/utils/function" as *;
 .circle {
-  width: rem(60);
-  height: rem(60);
+  width: rem(var(--circle-size));
+  height: rem(var(--circle-size));
   cursor: pointer;
   display: flex;
   justify-content: end;
@@ -9,7 +9,7 @@
   border-radius: 50%;
   background-color: yellow;
   transform: translate(-50%, -50%);
-  transition: transform 0.3s ease-out; /* Плавне масштабування */
+  transition: transform 0.3s ease-out;
   z-index: 3;
   user-select: none;
   touch-action: none;

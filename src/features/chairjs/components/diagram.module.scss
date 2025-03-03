@@ -1,16 +1,16 @@
 @use "@/scss/utils/function" as *;
-@use "@/scss/utils/mixins" as *;
+@use "@/scss/utils/mixins" as m;
 .diagramConteiner {
   width: 100%;
-  background-color: white;
-  @include laptop {
-    height: calc(100vh - #{rem(910)});
+  background-color: var(--diagram-background-color);
+  @include m.laptop {
+    height: calc(100vh - #{rem(var(--diagram-height-laptop))});
   }
-  @include tablet {
-    height: calc(100vh - #{rem(810)});
+  @include m.tablet {
+    height: calc(100vh - #{rem(var(--diagram-height-tablet))});
   }
-  @include mobile {
-    height: calc(100vh - #{rem(670)});
+  @include m.mobile {
+    height: calc(100vh - #{rem(var(--diagram-height-mobile))});
   }
 }
 

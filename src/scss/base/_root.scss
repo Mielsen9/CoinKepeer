@@ -1,0 +1,86 @@
+@use "@/scss/utils/function" as *;
+:root {
+  --container-width: 1200px;
+  --container-padding: 15px;
+
+  --font-main: "Manrope";
+  --font-size: 16px;
+
+  --page-bg: #fff;
+  --text-color: #000;
+
+  // info line
+    --info-line-height: 60;
+    // count
+    --info-line-count: 40;
+
+  // circle
+    --circle-size: 60;
+    --circle-size-half: calc(var(--circle-size) / 2);
+    --yellow-in-green: 45;
+    --circle-conteiner-size: calc(var(--circle-size) + 50);
+    // circle conteiner
+    --conteiner-paddings: 5;
+    --conteiner-row-gap: 5;
+    --conteiner-height-laptop: 590;
+    --conteiner-height-tablet: 470;
+    --conteiner-height-mobile: 350;
+    // circle name
+    --circle-name-color: grey;
+    // circle count
+    --circle-count-color: green;
+    // genie form
+    --genie-form-margin: 10;
+    --genie-form-background-color: brown;
+    --genie-form-background-color-activ: #222222;
+
+  // chairJs
+    // diagram
+    --diagram-background-color: white;
+    --diagram-height-laptop: 910;
+    --diagram-height-tablet: 810;
+    --diagram-height-mobile: 670;
+    // data out put
+    --data-out-put-background-color: white;
+    --data-out-put-padding: 10;
+
+  // complete button
+    --complete-button-size: 60;
+    --complete-button-font-size: 20;
+    --complete-button-bottom: calc(-1 * (var(--complete-button-size) + var(--complete-button-size)));
+    --complete-button-animation-bottom: calc(-1 * var(--complete-button-size));
+
+  // expenses button
+    --expenses-button-height: 60;
+    --expenses-button-font-size: 20;
+    --expenses-button-color: white;
+    --expenses-button-background-color: greenyellow;
+    //conteiner
+    --expenses-button-conteiner-height: 60;
+    --expenses-button-conteiner-bottom: -60;
+    --expenses-button-conteiner-background-color: white;
+    // data
+    --expenses-button-data-height: 60;
+    --expenses-button-conteiner-data-background-color: #F8F8F8;
+    // .expenses,
+    //.calculation
+    --expenses-calculation-width: 40;
+    --expenses-calculation-height: 60;
+    --expenses-calculation-padding-top-bottom: 20;
+    // calculation
+    --calculation-background-color: #FFFACD;
+  // delete button
+    --delete-button-width: 20;
+    --delete-button-height: 20;
+    --delete-button-color: white;
+    --delete-button-background-color: #404040;
+  // change button
+    --change-button-width: 20;
+    --change-button-height: 20;
+    --change-button-color: white;
+    --change-button-background-color: #404040;
+}
+.dark {
+  --page-bg: #252526;
+  --text-color: #fff;
+}

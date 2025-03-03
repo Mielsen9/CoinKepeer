@@ -1,14 +1,14 @@
-// Delete Change button ----------------------------------------------------------
+@use "@/scss/utils/function" as *;
 
-.delete{
+.delete {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 4px;
-  height: 20px;
-  width: 20px;
-  color: white;
+  height: rem(var(--delete-button-height));
+  width: rem(var(--delete-button-width));
+  color: var(--delete-button-color);
   border-radius: 50px;
-  background-color: #404040;
+  background-color: var(--delete-button-background-color);
   position: absolute;
 }

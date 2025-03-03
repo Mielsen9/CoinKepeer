@@ -1,5 +1,5 @@
 @use "@/scss/utils/function" as *;
-@use "@/scss/utils/mixins" as *;
+@use "@/scss/utils/mixins" as m;
 // animationContainer ----------------------------------------------------------
 
 .animationContainer {
@@ -8,12 +8,11 @@
 }
 // Bug ----------------------------------------------------------
 .bug {
-	width: rem(30);
-	height: rem(110);
-	padding: rem(30);
-	margin: auto calc(12.5% - 30px) 0 auto;
+	width: rem(var(--circle-size-half));
+	height: rem(var(--circle-conteiner-size));
+	padding: rem(var(--circle-size-half));
+	margin: auto calc(12.5% - #{rem(var(--circle-size-half))}) 0 auto;
 	box-sizing: border-box;
-	//background: greenyellow;
 	border-radius: 50px;
 }
 // Yellow Conteiner ----------------------------------------------------------
@@ -25,9 +24,9 @@
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
-	padding: rem(9) 0;
-	border-top: rem(1) solid grey;
-    border-bottom: rem(1) solid grey;
+	padding: rem(var(--conteiner-paddings)) 0;
+	border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
 	box-sizing: border-box;
 	transition: transform 0.3s ease; /* Плавне переміщення */
 }
@@ -38,41 +37,41 @@
 	display: flex;
 	align-content: start;
 	flex-wrap: wrap;
-	padding: rem(10) 0 ;
-	row-gap: rem(10);
+	padding: rem(var(--conteiner-paddings)) 0 ;
+	row-gap: rem(var(--conteiner-row-gap));
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
 	scrollbar-width: none;
-	@include laptop {
-		height: 590px;
+	@include m.laptop {
+		height: rem(var(--conteiner-height-laptop));
 	}
-	@include tablet {
-		height: 470px;
+	@include m.tablet {
+		height: rem(var(--conteiner-height-tablet));
 	}
-	@include mobile {
-		height: 350px;
+	@include m.mobile {
+		height: rem(var(--conteiner-height-mobile));
 	}
 }
 // Complete Button -----------------------------------------------
 
 .completeButton {
 	width: 100%;
-	height: rem(60);
+	height: rem(var(--complete-button-size));
 	background-color: orange;
 	position: absolute;
 	left: 0;
-	bottom: -120px; ///
+	bottom: rem(var(--complete-button-bottom));
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 20px;
+	font-size: rem(var(--complete-button-font-size));
 	color: white;
 	box-sizing: border-box;
 	z-index: 1;
 	transition: 0.3s bottom ease-in-out;
 }
 .changeAnimation {
-	bottom: -60px;
+	bottom: rem(var(--complete-button-animation-bottom));;
 }
 // Change animation ----------------------------------------
 

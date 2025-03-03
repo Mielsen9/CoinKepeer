@@ -1,5 +1,5 @@
 import React from "react";
-import * as s from "./InfiLine.module.scss"
+import * as s from "./InfoLine.module.scss"
 // Type
 type PropsType = {
 

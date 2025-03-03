@@ -1,25 +1,25 @@
 @use "@/scss/utils/function" as *;
 // genieFormButton -------------------------------------------
 .genieFormButton {
-  width: rem(60);
-  height: rem(60);
-  margin: auto calc(12.5% - 30px) 0 auto;
+  width: rem(var(--circle-size));
+  height: rem(var(--circle-size));
+  margin: auto calc(12.5% - #{rem(var(--circle-size-half))}) 0 auto;
   box-sizing: border-box;
-  background: brown;
+  background-color: var(--genie-form-background-color);
   border-radius: 50px;
   color: #fff;
   position: absolute;
-  left: calc(87.5% - 30px);
+  left: calc(87.5% - #{rem(var(--circle-size-half))});
   transition: all 1.5s ease;
 }
 .genieFormButton:active {
-  background-color: #222222;
+  background-color: var(--genie-form-background-color-activ);
 }
 .active {
   position: absolute;
   height: 320px;
   width: calc(100vw - 20px);
-  margin: 10px;
+  margin: rem(var(--genie-form-margin));
   transform-origin: left bottom;
   border-radius: 20px;
   background-color: #4caf50;

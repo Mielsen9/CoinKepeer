@@ -1,12 +1,14 @@
+@use "@/scss/utils/function" as *;
+
 .change {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 4px;
-  height: 20px;
-  width: 20px;
-  color: white;
+  height: rem(var(--change-button-height));
+  width: rem(var(--change-button-width));
+  color: var(--change-button-color);
   border-radius: 50px;
-  background-color: #404040;
+  background-color: var(--change-button-background-color);
   position: absolute;
 }

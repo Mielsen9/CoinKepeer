@@ -1,11 +1,10 @@
-@use "@/scss/utils/function" as *;
-@use "@/scss/utils/mixins" as *;
-@use "@/scss/utils/utils";
+@use "@/scss/utils/function" as f;
+@use "@/scss/utils/utils" as u;
 
 .mainBlock {
  display: flex;
  flex-direction: column;
  justify-content: space-between;
- height: calc(100vh - #{rem(120)});
+ height: calc(100vh - #{f.rem(120)});
  z-index: 2;
 }

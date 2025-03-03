@@ -2,47 +2,47 @@
 
 .expensesConteiner {
   width: 100%;
-  height: 60px;
-  background-color: white;
+  height: rem(var(--expenses-button-conteiner-height));
+  background-color: var(--expenses-button-conteiner-background-color);
   position: absolute;
   left: 0;
-  bottom: -60px;
+  bottom: rem(var(--expenses-button-conteiner-bottom));
   transition: height 0.7s ease-in-out; /* Додаємо плавність */
   cursor: pointer;
 }
 .expanded {
-  height: calc(100vh - 61px); /* Висота при розгортанні */
+  height: calc(100vh - #{rem(var(--expenses-button-conteiner-height))}); /* Висота при розгортанні */
 }
 .expensesButton {
   width: 100%;
-  height: rem(60);
-  background-color: greenyellow;
+  height: rem(var(--expenses-button-height));
+  background-color: var(--expenses-button-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  color: white;
+  font-size: rem(var(--expenses-button-font-size));
+  color: var(--expenses-button-color);
   box-sizing: border-box;
 }
 
 ///
 .data {
   width: 100%;
-  height: rem(60);
+  height: rem(var(--expenses-button-data-height));
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F8F8F8;
+  background-color: var(--expenses-button-conteiner-data-background-color);
 }
 .expenses,
 .calculation{
-  width: calc(100vw - 40px);
-  height: rem(60);
+  width: calc(100vw - #{rem(var(--expenses-calculation-width))});
+  height: rem(var(--expenses-calculation-height));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 rem(var(--expenses-calculation-padding-top-bottom));
 }
 .calculation {
-  background-color: #FFFACD;
+  background-color: var(--calculation-background-color);
 }

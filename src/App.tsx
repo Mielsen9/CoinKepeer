@@ -1,6 +1,5 @@
 import React from "react";
 import * as s from "./App.module.scss";
-
 import {ExpensesButton} from "@/components/ExpensesButton/ExpensesButton";
 import {ChairJs} from "@/features/chairjs/ChairJs";
 import {Animation} from "@/features/animationCircle/Animation";

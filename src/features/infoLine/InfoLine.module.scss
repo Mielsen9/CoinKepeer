@@ -1,10 +1,11 @@
 @use "@/scss/utils/function" as *;
+
 .infoLineConteiner {
-  height: rem(60);
+  height: rem(var(--info-line-height));
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 .count {
-  font-size: 40px;
+  font-size: rem(var(--info-line-count));
 }

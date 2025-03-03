@@ -1,7 +1,7 @@
 @use "@/scss/utils/function" as *;
 .greenCircle {
-  width: rem(60);
-  height: rem(60);
+  width: rem(var(--circle-size));
+  height: rem(var(--circle-size));
   cursor: pointer;
   border-radius: 50%;
   display: flex;

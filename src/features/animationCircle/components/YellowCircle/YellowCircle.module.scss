@@ -4,13 +4,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: rem(110);
+  height: rem(var(--circle-conteiner-size));
 }
 .relativeConteiner {
   display: inline-block;
-  width: rem(30);
-  height: rem(30);
-  padding: rem(30) 12.5vw;
+  width: rem(var(--circle-size-half));
+  height: rem(var(--circle-size-half));
+  padding: rem(var(--circle-size-half)) 12.5vw;
   flex-shrink: 0;
   box-sizing: border-box;
   scroll-snap-align: start;

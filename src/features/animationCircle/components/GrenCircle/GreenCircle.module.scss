@@ -1,10 +1,9 @@
 @use "@/scss/utils/function" as *;
-// greenCircle ----------------------------------------------------------
 
 .relativeConteiner {
-  width: rem(60);
-  height: rem(110);
-  margin: 0 calc(12.5% - 30px);
+  width: rem(var(--circle-size));
+  height: rem(var(--circle-conteiner-size));
+  margin: 0 calc(12.5% - #{rem(var(--circle-size-half))});
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,8 +11,8 @@
   scroll-snap-align: center;
 }
 .greenCircleBack {
-  width: rem(60);
-  height: rem(60);
+  width: rem(var(--circle-size));
+  height: rem(var(--circle-size));
   cursor: pointer;
   border-radius: 50%;
   background-color: grey;
@@ -24,8 +23,8 @@
   overflow: hidden;
 }
 .yellowInGreen{
-  width: 45px;
-  height: 45px;
+  width: rem(var(--yellow-in-green));
+  height: rem(var(--yellow-in-green));
   border-radius: 50%;
   background-color: yellow;
 }
