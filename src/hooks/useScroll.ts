@@ -11,7 +11,6 @@ export const useScroll = (p: useScrollPropsType ) => {
 	useEffect(() => {
 			if (scrollContainerRef.current) {
 				scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
-				console.log('scrollContainerRef.current.scrollTop', scrollContainerRef.current.scrollTop);
 				setScrollHeight(scrollContainerRef.current.scrollHeight)
 			}
 	}, [p.content]);

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef} from "react";
+import React, {useCallback} from "react";
 import * as s from "./Animation.module.scss"
 import {YellowCircle} from "@/features/animationCircle/components/YellowCircle/YellowCircle";
 import {GreenCircle} from "@/features/animationCircle/components/GrenCircle/GreenCircle";
@@ -15,13 +15,15 @@ import {
 import {useShowChangeButtons} from "@/hooks/useShowChangeButtons";
 import {GenieForm} from "@/features/animationCircle/components/GenieForm/GenieForm";
 import {useScroll} from "@/hooks/useScroll";
+import {shallowEqual} from "react-redux";
 
 // Animation
 export const Animation: React.FC = React.memo(() => {
+	console.log("Animation")
 	// Redux
 	const dispatch = useAppDispatch();
-	const yellowCircles= useAppSelector(selectYellowCircles);
-	const greenCircles = useAppSelector(selectGreenCircles);
+	const yellowCircles= useAppSelector(selectYellowCircles, shallowEqual);
+	const greenCircles = useAppSelector(selectGreenCircles, shallowEqual);
 	// Handler YellowCircle --------------------------------------------------------------------------------------------
 	const addYellowCircle = useCallback(() => {
 		dispatch(yellowCircleAdded());
@@ -37,11 +39,6 @@ export const Animation: React.FC = React.memo(() => {
 	const removeGreenCircle = useCallback((id: number) => {
 		dispatch(greenCircleRemoved({id}));
 	}, [dispatch]);
-	// isPressedRef
-	const isPressedRef = useRef<boolean>(false);
-	const handlePress = useCallback((boolean: boolean) => {
-		isPressedRef.current = boolean
-	}, []);
 	// Hook ------------------------------------------------------------------------------------------------------------
 	const {scrollContainerRef, scrollHeight} = useScroll({ content: greenCircles });
 	const {isShowChangeButtons, handleShowChangeButtons, handleMoveMouse, toggleShowChangeButtons} = useShowChangeButtons();
@@ -53,8 +50,6 @@ export const Animation: React.FC = React.memo(() => {
 					<YellowCircle key={circle.id}
 								  id={circle.id}
 								  changeAnimation={s.rotate}
-								  isPressedRef={isPressedRef}
-								  handlePress={handlePress}
 								  isShowChangeButtons={isShowChangeButtons}
 								  handleShowChangeButtons={handleShowChangeButtons}
 								  handleMoveMouse={handleMoveMouse}

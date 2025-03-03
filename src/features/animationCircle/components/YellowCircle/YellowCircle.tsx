@@ -8,8 +8,6 @@ import {YellowCircleTop} from "@/features/animationCircle/components/YellowCircl
 type PropsType = {
 	id: number,
 	changeAnimation: string
-	isPressedRef: MutableRefObject<boolean>,
-	handlePress: (boolean: boolean) => void,
 	isShowChangeButtons: boolean
 	handleShowChangeButtons: (boolean: boolean) => void;
 	handleMoveMouse: () => void
@@ -31,8 +29,6 @@ export const YellowCircle: React.FC<PropsType> = React.memo((p) => {
 			<CircleName/>
 			<div className={s.relativeConteiner}>
 				<YellowCircleTop id={p.id}
-				                 isPressedRef={p.isPressedRef}
-				                 handlePress={p.handlePress}
 								 isShowChangeButtons={p.isShowChangeButtons}
 								 handleShowChangeButtons={p.handleShowChangeButtons}
 								 toggleShowChangeButtons={p.toggleShowChangeButtons}

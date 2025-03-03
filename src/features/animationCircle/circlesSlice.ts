@@ -5,6 +5,7 @@ const initialState: CircleState= {
 	yellowCircles: [],
 	greenCircles: [],
 	isPressed: false,
+	isOverlapping: { boolean: false, position:{x: null , y: null}}
 }
 // circlesSlice
 const circlesSlice = createSlice({
@@ -36,6 +37,11 @@ const circlesSlice = createSlice({
 			const { position } = action.payload;
 			state.isPressed = position;
 		},
+		isOverlappingHandler(state, action: PayloadAction<{ boolean: boolean, position:{x: number | null , y: number | null}}>) {
+			const { boolean, position } = action.payload;
+			state.isOverlapping = { boolean: boolean, position:{x: position.x , y: position.y}};
+
+		},
 	},
 })
 // Export
@@ -45,12 +51,14 @@ export const {
 	greenCircleAdded,
 	greenCircleRemoved,
 	isPressedHandler,
+	isOverlappingHandler,
 } = circlesSlice.actions
 export default circlesSlice.reducer
 
 export const selectYellowCircles = (state: RootState) => state.circles.yellowCircles;
 export const selectGreenCircles = (state: RootState) => state.circles.greenCircles;
 export const selectIsPressed = (state: RootState) => state.circles.isPressed;
+export const selectIsOverlapping = (state: RootState) => state.circles.isOverlapping;
 // export const selectTargetData = createSelector(
 // 	[selectDatasets],
 // 	(datasets) => {

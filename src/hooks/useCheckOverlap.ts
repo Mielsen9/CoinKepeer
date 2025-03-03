@@ -1,12 +1,12 @@
 import {useEffect, useRef, useState} from "react";
 // Тип для результату
 export interface CheckOverlapResult {
-	isOverlapping: boolean;
+	isOverlap: boolean;
 	checkOverlap: (greenX: number, greenY: number) => void;
 }
 // useCheckOverlap
 export const useCheckOverlap = (): CheckOverlapResult => {
-	const [isOverlapping, setIsOverlapping] = useState<boolean>(false);
+	const [isOverlap, setIsOverlap] = useState<boolean>(false);
 	const mousePositionRef= useRef<{ x:number, y:number } | null>(null);
 	const objectPositionRef= useRef<{ x:number, y:number } | null>(null);
 	// Logic
@@ -37,10 +37,10 @@ export const useCheckOverlap = (): CheckOverlapResult => {
 				const dy = mousePositionRef.current?.y - greenCenterY;
 				const distance = Math.sqrt(dx * dx + dy * dy);
 				// Знайшли перетин
-				if (distance < 60) {
-					setIsOverlapping(true);
+				if (distance < 50) {
+					setIsOverlap(true);
 				} else {
-					setIsOverlapping(false)
+					setIsOverlap(false)
 				}
 			}
 		};
@@ -54,7 +54,7 @@ export const useCheckOverlap = (): CheckOverlapResult => {
 	}, []);
 	// Return
 	return {
-		isOverlapping,
+		isOverlap,
 		checkOverlap
 	}
 };
