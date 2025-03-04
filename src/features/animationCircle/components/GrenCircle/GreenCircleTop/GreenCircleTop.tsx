@@ -19,7 +19,7 @@ export const GreenCircleTop: React.FC<PropsType> = React.memo((p) => {
 		const circleGreenTop = greenCircleTopRef.current;
 		if (circleGreenTop) {
 			if (isOverlapping.boolean && p.isOverlap) {
-				translateGreenCircleRef.current = 72;
+				translateGreenCircleRef.current = 50;
 				circleGreenTop.style.transform = `translateY(${translateGreenCircleRef.current}px)`;
 				circleGreenTop.style.transition =  'transform 0.4s ease-out';
 			}
