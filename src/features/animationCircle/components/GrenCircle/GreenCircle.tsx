@@ -39,7 +39,7 @@ export const GreenCircle: React.FC<PropsType> = React.memo((p) => {
 		}
 	}, [isPressed]);
 	useEffect(() => {
-		if (isOverlap) {
+		if (isOverlap && isPressed) {
 			dispatch(isOverlappingHandler({
 				boolean: true,
 				position: {x: positionCircleRef.current.x, y: positionCircleRef.current.y}
