@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import * as s from "./genieForm.module.scss";
 // Type
 type GenieFormPropsType = {
@@ -9,11 +9,11 @@ type GenieFormPropsType = {
 //
 export const GenieForm: React.FC<GenieFormPropsType> = React.memo((p) => {
 	const [isClicked, setIsClicked] = useState(false);
-	const [scrollHeight, setScrollHeight] = useState<number>(260);
+	const [scrollHeight, setScrollHeight] = useState<number>(240);
 
 	useEffect(() => {
 		if (p.scrollHeight) {
-			setScrollHeight(p.scrollHeight - 95);
+			setScrollHeight(p.scrollHeight - 80);
 		}
 	}, [p.scrollHeight]);
 

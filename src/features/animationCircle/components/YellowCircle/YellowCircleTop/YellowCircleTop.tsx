@@ -4,7 +4,6 @@ import {DeleteButton} from "@/components/DeleteButton/DeleteButton";
 import {ChangeButton} from "@/components/ChangeButton/ChangeButton";
 import {useAppDispatch, useAppSelector} from "@/state/hook";
 import {isOverlappingHandler, isPressedHandler, selectIsOverlapping} from "@/features/animationCircle/circlesSlice";
-import {logDOM} from "@testing-library/react";
 // Type
 type PropsType = {
 	id: number,
@@ -105,8 +104,9 @@ export const YellowCircleTop: React.FC<PropsType> = React.memo((p) => {
 	const handleEndAnimation = () => {
 		targetCircleRef.current = false;
 		if(isOverlapping.boolean) {
+			// add center for circle
 			if(isOverlapping.position.x !== null && isOverlapping.position.y !== null) {
-				positionGreenCircleRef.current = {x: isOverlapping.position.x + 30, y: isOverlapping.position.y + 30}
+				positionGreenCircleRef.current = {x: isOverlapping.position.x + 25, y: isOverlapping.position.y + 25}
 			}
 			updateCirclePosition("overlap", positionGreenCircleRef);
 		}
